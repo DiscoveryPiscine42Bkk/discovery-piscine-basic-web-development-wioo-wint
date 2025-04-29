@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid rgb(46, 46, 46);
+    height: 200px;
+    font-size: 35px;
+}
+
+@media screen and (max-width: 400px) {
+    td {
+        font-size: 20px;
+    }
+}
