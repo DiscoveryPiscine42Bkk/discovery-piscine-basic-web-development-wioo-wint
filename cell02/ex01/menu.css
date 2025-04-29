@@ -1,0 +1,42 @@
+#title {
+    text-align: center;
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.btn-sncf {
+    background-color: #f8de91;
+    color: rgb(132, 3, 3);
+    padding: 16px 20px;
+    font-size: 20px;
+    border: none;
+}
+
+.sncf-content {
+    width: 100%;
+    display: none;
+    position: absolute;
+    background-color: #fff9ea;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+a {
+    font-size: 20px;
+    color: rgb(2, 131, 71);
+    padding: 15px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.sncf-content a:hover {background-color: #f6dfdf;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .sncf-content {display: block;}
+
+.dropdown:hover .btn-sncf {background-color: #fcd6ab;}
