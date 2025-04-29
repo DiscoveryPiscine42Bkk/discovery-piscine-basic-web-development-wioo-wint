@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Responsive</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid rgb(46, 46, 46);
+            height: 200px;
+            font-size: 35px;
+        }
+
+        @media screen and (max-width: 400px) {
+            td{
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <hr>
+    <div class="container">
+        <table>
+            <tr>
+                <td style="background-color: rgb(238, 97, 97);">First Meow Meow Meow</td>
+                <td style="background-color: rgb(172, 123, 217);">Second Meow Meow Meow</td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
