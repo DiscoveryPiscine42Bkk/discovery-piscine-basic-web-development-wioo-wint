@@ -20,9 +20,10 @@
 
 <script>
     var balloon = document.getElementById("balloon");
+    const colors = ["red", "green", "blue"];
+    var currentColor = 0;
 
     function changeSize() {
-        //changing size
         let balloonW = balloon.clientHeight;
         let balloonH = balloon.clientWidth;
 
@@ -37,31 +38,33 @@
 
         console.log("Width:", balloonW, ", Height:", balloonH);
 
-        //changing color
-        let bgColor = window.getComputedStyle(balloon, null).getPropertyValue("background-color");
-
-        console.log("Bg Color:", bgColor);
-
-        if (bgColor == "rgb(255, 0, 0)") {
-            balloon.style.backgroundColor = "rgb(0, 255, 0)";
-        }
-        else if (bgColor == "rgb(0, 255, 0)") {
-            balloon.style.backgroundColor = "blue";
-        }
-        else {
-            balloon.style.backgroundColor = "red";
-        }
+        switchColor(1);
     }
 
     function shrink() {
-        //changing size
         let balloonW = balloon.clientHeight;
         let balloonH = balloon.clientWidth;
 
         if (balloonW > 200 || balloonH > 200) {
             balloon.style.width = (balloon.clientWidth - 5) + "px";
             balloon.style.height = (balloon.clientHeight - 5) + "px";
+            switchColor(-1);
         }
+    }
+
+    function switchColor(order) {
+        currentColor += order;
+        if (currentColor > colors.length-1) {
+            currentColor = 0;
+        }
+
+        if (currentColor < 0) {
+            currentColor = colors.length - 1;
+        }
+
+        console.log("Color:",currentColor, colors[currentColor]);
+
+        balloon.style.backgroundColor = colors[currentColor];
     }
 
 </script>
