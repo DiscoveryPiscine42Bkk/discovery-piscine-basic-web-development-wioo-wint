@@ -3,26 +3,35 @@ var todoList = [];
 function addNew() {
     var inputValue = prompt("Please enter a to-do task:");
 
-    if (inputValue != null) {
+    if(inputValue == null) return;
+
+    if (inputValue.length > 0) {
         createTodo(inputValue);
         todoList.push(inputValue);
-        addCookie(todoList);
+        addCookie();
     }
 }
 
-function addCookie(todoList) {
-    document.cookie = todoList + ";path=/";
+function addCookie() {
+    document.cookie = "todo=" + todoList + ";path=/";
 }
 
-function loadCookie() {
-    var data = decodeURIComponent(document.cookie);
-    todoList = data.split(",");
+function loadCookie(name) {
+    const cname = name + "=";
+    var data = document.cookie;
 
-    if (todoList.length>0) {
-        for (let i = 0; i < todoList.length; i++) {
-            createTodo(todoList[i]);
+    //split() add " " value to the array even No Data - using split(), the array length is at least 1.
+    var todo_onCookie = (data.substring(cname.length)).split(",");
+
+    console.log(data);
+
+    if (data != cname) {
+        for (let i = 0; i < todo_onCookie.length; i++) {
+            createTodo(todo_onCookie[i]);
         }
     }
+
+    todoList = todo_onCookie; //to restore the data on the Cookie
 }
 
 function createTodo(inputValue) {
