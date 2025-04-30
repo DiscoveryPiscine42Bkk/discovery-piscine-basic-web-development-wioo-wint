@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Balloon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #balloon {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(255, 0, 0);
+            border-radius: 100%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="balloon" onclick="changeSize()" onmouseleave="shrink()"></div>
+</body>
+
+<script>
+    var balloon = document.getElementById("balloon");
+
+    function changeSize() {
+        //changing size
+        let balloonW = balloon.clientHeight;
+        let balloonH = balloon.clientWidth;
+
+        if (balloonW > 420 || balloonH > 420) {
+            balloon.style.width = "200px";
+            balloon.style.height = "200px";
+        }
+        else {
+            balloon.style.width = (balloonW + 10) + "px";
+            balloon.style.height = (balloonH + 10) + "px";
+        }
+
+        console.log("Width:", balloonW, ", Height:", balloonH);
+
+        //changing color
+        let bgColor = window.getComputedStyle(balloon, null).getPropertyValue("background-color");
+
+        console.log("Bg Color:", bgColor);
+
+        if (bgColor == "rgb(255, 0, 0)") {
+            balloon.style.backgroundColor = "rgb(0, 255, 0)";
+        }
+        else if (bgColor == "rgb(0, 255, 0)") {
+            balloon.style.backgroundColor = "blue";
+        }
+        else {
+            balloon.style.backgroundColor = "red";
+        }
+    }
+
+    function shrink() {
+        //changing size
+        let balloonW = balloon.clientHeight;
+        let balloonH = balloon.clientWidth;
+
+        if (balloonW > 200 || balloonH > 200) {
+            balloon.style.width = (balloon.clientWidth - 5) + "px";
+            balloon.style.height = (balloon.clientHeight - 5) + "px";
+        }
+    }
+
+</script>
+
+</html>
