@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+    <title>Change Background</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="background.css">
+</head>
+
+<body id="main">
+    <button onclick="changeColor()" id="btn">Click me!</button>
+</body>
+
+<script>
+    function changeColor() {
+        document.getElementById("main").style.backgroundColor = randomColors();
+        
+        var button = document.getElementById("btn");
+        button.style.padding = "15px 20px";
+        button.style.fontSize = "20px";
+    }
+
+    // http://www.paulirish.com/2009/random-hex-color-code-snippets/
+    function randomColors() {
+        return '#'+ ((Math.random()*0xFFFFFF).toString(16)).slice(-6);
+        //0xFFFFFF - '0x' is to let the computer know using a HEX number
+    }
+</script>
+
+</html>
