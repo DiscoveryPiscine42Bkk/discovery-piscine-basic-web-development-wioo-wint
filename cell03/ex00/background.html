@@ -14,7 +14,9 @@
         document.getElementById("main").style.backgroundColor = randomColors();
         
         var button = document.getElementById("btn");
-        button.style.padding = "15px 20px";
+        let btnSize = window.getComputedStyle(button, null).getPropertyValue("padding");
+        var newSize = (parseInt(btnSize.replace("px","")) + 5) + "px";
+        button.style.padding = newSize;
         button.style.fontSize = "20px";
     }
 

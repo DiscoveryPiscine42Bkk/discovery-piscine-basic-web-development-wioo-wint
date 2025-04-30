@@ -1,4 +1,4 @@
-button{
+#btn{
     padding: 10px;
-    
+    aspect-ratio: 16/4;  
 }
