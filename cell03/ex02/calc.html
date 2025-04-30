@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        form {
+            background-color: antiquewhite;
+            padding: 40px;
+            text-align: center;
+            width: 80%;
+            margin: auto;
+        }
+
+        input[type=text] {
+            margin: 10px;
+            padding: 10px 6px;
+            font-size: 20px;
+            text-align: right;
+        }
+
+        #operator {
+            padding: 10px;
+            font-size: 20px;
+        }
+
+        input[type=submit] {
+            padding: 10px 16px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#">
+        <input type="text" id="l-input" name="leftInput" required>
+        <select id="operator">
+            <option value="add">+</option>
+            <option value="sub">-</option>
+            <option value="mul">*</option>
+            <option value="div">/</option>
+            <option value="mod">%</option>
+        </select>
+        <input type="text" id="r-input" name="rightInput" required>
+        <input type="submit" value="Try me!" onclick="calculate()">
+    </form>
+</body>
+
+<script>
+    function calculate() {
+        var operator = document.getElementById("operator").value;
+        var leftInput = parseInt(document.getElementById("l-input").value);
+        var rightInput = parseInt(document.getElementById("r-input").value);
+        var result;
+
+        if (leftInput < 0 || rightInput < 0) {
+            result = "Error :(";
+        }
+        else if (rightInput == 0 && (operator == "div" || operator == "mod")) {
+            result = "It's over 9000!";
+        } else {
+            switch (operator) {
+                case "add":
+                    result = leftInput + rightInput;
+                    break;
+                case "sub":
+                    result = leftInput - rightInput;
+                    break;
+                case "mul":
+                    result = leftInput * rightInput;
+                    break;
+                case "div":
+                    result = leftInput / rightInput;
+                    break;
+                case "mod":
+                    result = leftInput % rightInput;
+                    break;
+            }
+
+            result = "The result is " + result;
+        }
+
+        console.log(result);
+        alert(result);
+    }
+</script>
+
+</html>
