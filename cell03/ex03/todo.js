@@ -40,9 +40,11 @@ function createTodo(inputValue) {
     todo.className = "todo";
 
     todo.addEventListener("click", function () {
-        todo.remove();
-        var index = todoList.indexOf(todo.innerText);
-        todoList.splice(index, 1);
-        addCookie(todoList);
+        if (confirm("Are you sure to delete this?")) {
+            todo.remove();
+            var index = todoList.indexOf(todo.innerText);
+            todoList.splice(index, 1);
+            addCookie(todoList);
+        }
     });
 }
