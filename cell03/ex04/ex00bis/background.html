@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Change Background</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="background.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body id="main">
+    <button id="btn">Click me!</button>
+</body>
+
+<script>
+    $(document).ready(function () {
+        $("button").click(function () {
+            $("#main").css("background", randomColors());
+
+            let $button = $("#btn");
+            $button.css("width" , (parseInt($button.css("width")) + 10) + "px");
+            $button.css("height", (parseInt($button.css("height")) + 5) + "px");
+            $button.css("font-size" , (parseInt($button.css("font-size")) + 2) + "px");
+        });
+    });
+
+    var randomColors = function() {
+        return '#' + ((Math.random() * 0xFFFFFF).toString(16)).slice(-6);
+        //0xFFFFFF - '0x' is to let the computer know using a HEX number
+    };
+</script>
+
+</html>

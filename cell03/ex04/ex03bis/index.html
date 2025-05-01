@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<head>
+    <title>To Do List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="todo.js"></script>
+    <style>
+        body {
+            background-color: antiquewhite;
+            text-align: center;
+            margin: auto;
+        }
+
+        .todo{
+            background-color: rgb(251, 251, 251);
+            border: 1px solid gray;
+            border-radius: 10px;
+            width: 20%;
+            margin: auto;
+            padding: 15px 20px;
+            font-size: 20px;
+        }
+        
+        .todo:hover{
+            background-color: rgb(233, 233, 233);
+            cursor: pointer;
+        }
+
+        button{
+            margin:10px auto;
+            padding: 12px 25px;
+            font-size: 20px;
+            background-color: rgb(253, 123, 97);
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body onload="loadCookie('todo')">
+    <h1>-To Do List-</h1>
+    <div id="ft_list"></div>
+    <button>New</button>
+</body>
+
+</html>

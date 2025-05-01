@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Balloon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        #balloon {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(255, 0, 0);
+            border-radius: 100%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="balloon"></div>
+</body>
+
+<script>
+    var balloon = $("#balloon");
+    const colors = ["red", "green", "blue"];
+    var currentColor = 0;
+
+    $(document).ready(function () {
+        $("#balloon").click(function () {
+
+            let balloonW = parseInt(balloon.css("width"));
+            let balloonH = parseInt(balloon.css("height"));
+
+            if (balloonW > 420 || balloonH > 420) {
+                balloon.css("width", "200px");
+                balloon.css("height", "200px");
+            }
+            else {
+                balloon.css("width", (balloonW + 10) + "px");
+                balloon.css("height", (balloonH + 10) + "px");
+            }
+
+            console.log("Width:", balloonW, ", Height:", balloonH);
+            switchColor(1);
+
+        });
+    });
+
+    balloon.mouseleave(function () {
+        let balloonW = parseInt(balloon.css("width"));
+        let balloonH = parseInt(balloon.css("height"));
+
+        if (balloonW > 200 || balloonH > 200) {
+            balloon.css("width", (balloonW - 5) + "px");
+            balloon.css("height", (balloonH - 5) + "px");
+            switchColor(-1);
+        }
+    });
+
+    function switchColor(order) {
+        currentColor += order;
+        if (currentColor > colors.length - 1) {
+            currentColor = 0;
+        }
+
+        if (currentColor < 0) {
+            currentColor = colors.length - 1;
+        }
+
+        balloon.css("background", colors[currentColor]);
+    }
+
+</script>
+
+</html>
